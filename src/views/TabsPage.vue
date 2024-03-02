@@ -9,14 +9,18 @@
             alt=""
           />
           <ion-label
-            >Current
-            {{ formatTemperature(weather?.current.temp, "C") }}</ion-label
+            >Now {{ formatTemperature(weather?.current.temp, "C") }}</ion-label
           >
+        </ion-tab-button>
+
+        <ion-tab-button tab="tab3" href="/tabs/tab3">
+          <ion-icon aria-hidden="true" :icon="timeOutline" />
+          <ion-label>Hourly Forecast</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="tab2" href="/tabs/tab2">
           <ion-icon aria-hidden="true" :icon="calendarOutline" />
-          <ion-label>Forecast</ion-label>
+          <ion-label>Daily Forecast</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
     </ion-tabs>
@@ -33,7 +37,7 @@ import {
   IonTabBar,
   IonRouterOutlet,
 } from "@ionic/vue";
-import { calendarOutline } from "ionicons/icons";
+import { calendarOutline, timeOutline } from "ionicons/icons";
 import { useWeather } from "../weather/weather.service";
 
 export default {
@@ -55,6 +59,7 @@ export default {
       formatTemperature,
       getWeatherImageUrl,
       calendarOutline,
+      timeOutline,
     };
   },
 };

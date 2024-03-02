@@ -12,7 +12,7 @@
         formatTemperature(weather.current.temp, "C")
       }}</ion-card-title>
       <ion-card-subtitle>{{
-        weather.current.weather[0].description
+        weather.current.weather[0].description.toUpperCase()
       }}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>

@@ -37,8 +37,17 @@ interface DailyWeather {
   wind_speed: number;
 }
 
+interface HourlyWeather {
+  feels_like: FeelsLike;
+  humidity: number;
+  temp: Temperature;
+  weather: Weather[];
+  wind_speed: number;
+}
+
 export interface OneWeather {
   current: CurrentWeather;
   daily: DailyWeather[];
+  hourly: HourlyWeather[];
   timezone: string;
 }

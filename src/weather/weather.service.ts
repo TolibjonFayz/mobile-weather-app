@@ -3,7 +3,7 @@ import { ref } from "vue";
 import { OneWeather } from "./one-weather.model";
 
 const weatherUrl =
-  "https://api.openweathermap.org/data/2.5/onecall?exclude=minutely,hourly&appid=7efa332cf48aeb9d2d391a51027f1a71";
+  "https://api.openweathermap.org/data/2.5/onecall?exclude=minutely&appid=7efa332cf48aeb9d2d391a51027f1a71";
 
 const weather = ref<OneWeather>();
 

@@ -1,11 +1,11 @@
 <template>
-  <ion-list v-if="weather?.daily">
+  <ion-list v-if="weather?.hourly">
     <!-- <ion-list-header>Forecast</ion-list-header> -->
-    <ion-item v-for="daily in weather.daily" :key="daily.dt">
+    <ion-item v-for="hourly in weather.hourly" :key="hourly.dt">
       <ion-avatar>
         <div class="weather-background">
           <img
-            :src="`https://openweathermap.org/img/wn/${daily.weather[0].icon}@2x.png`"
+            :src="`https://openweathermap.org/img/wn/${hourly.weather[0].icon}@2x.png`"
             alt="img"
           />
         </div>
@@ -13,16 +13,13 @@
       <ion-label>
         <h1>
           {{
-            new Date(daily.dt * 1000).toLocaleDateString(undefined, {
-              weekday: "long",
-              year: "numeric",
-              month: "long",
-              day: "numeric",
+            new Date(hourly.dt * 1000).toLocaleTimeString(undefined, {
+              day: "2-digit",
             })
           }}
         </h1>
-        <h2>{{ formatTemperature(daily.temp.day, "C") }}</h2>
-        <h2>{{ daily.weather[0].description.toUpperCase() }}</h2>
+        <h2>{{ formatTemperature(hourly.temp, "C") }}</h2>
+        <h2>{{ hourly.weather[0].description.toUpperCase() }}</h2>
       </ion-label>
     </ion-item>
   </ion-list>
@@ -31,19 +28,12 @@
 <script lang="ts">
 import { defineComponent, onMounted } from "vue";
 import { useWeather } from "./weather.service";
-import {
-  IonAvatar,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonListHeader,
-} from "@ionic/vue";
+import { IonAvatar, IonItem, IonLabel, IonList } from "@ionic/vue";
 import commonIonicComponents from "../shared/common-ionic-components";
 
 export default defineComponent({
   components: {
     IonList,
-    IonListHeader,
     IonItem,
     IonAvatar,
     IonLabel,

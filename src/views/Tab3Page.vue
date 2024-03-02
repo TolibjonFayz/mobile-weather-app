@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Daily Forecast</ion-title>
+        <ion-title>Hourly Forecast</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content :fullscreen="true">
@@ -11,8 +11,7 @@
           <ion-title size="large">Forecast</ion-title>
         </ion-toolbar>
       </ion-header>
-
-      <ForeCast></ForeCast>
+      <HourLy></HourLy>
     </ion-content>
   </ion-page>
 </template>
@@ -26,7 +25,7 @@ import {
   IonContent,
 } from "@ionic/vue";
 import { defineComponent } from "vue";
-import ForeCast from "../weather/Fore-cast.vue";
+import HourLy from "../weather/Hour-ly.vue";
 
 export default defineComponent({
   // eslint-disable-next-line vue/multi-word-component-names
@@ -37,7 +36,7 @@ export default defineComponent({
     IonTitle,
     IonContent,
     IonPage,
-    ForeCast,
+    HourLy,
   },
 });
 </script>
